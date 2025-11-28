@@ -224,8 +224,8 @@ body {
 
 /* FOTO DE LA QUINCEA�ERA EN PORTADA */
 .quince-photo {
-    width: 160px; 
-    height: 160px; 
+    width: 260px; 
+    height: 260px; 
     border-radius: 50%; 
     object-fit: cover; 
     border: 5px solid white; 
