@@ -1,0 +1,902 @@
+/* ---------------------------------- */
+/* PALETA DE COLORES MARINOS */
+/* ---------------------------------- */
+:root {
+    --color-sea-dark: #004a7c; /* Azul oscuro, profundo */
+    --color-sea-medium: #0077b6; /* Azul medio, vibrante */
+    --color-sea-light: #48cae4; /* Turquesa, aqua */
+    --color-sand: #f8f7f5; /* Blanco arena */
+    --color-coral: #ff7f50; /* Coral para acentos */
+    --color-text: #2c3e50;
+}
+
+/* ---------------------------------- */
+/* RESET Y FONDO GLOBAL (CON IMAGEN MARINA Y OPACIDAD) */
+/* ---------------------------------- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Merriweather", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+}
+
+body {
+    font-family: "Merriweather", serif;
+    line-height: 1.6;
+    color: var(--color-text);
+    
+    /* FONDO MARINO GLOBAL PARA TODAS LAS SECCIONES */
+    background-image: url('Images/fondo2.jpg'); /* DEBE COINCIDIR CON EL NOMBRE DE TU ARCHIVO */
+    background-repeat: repeat;
+    /*background-size: cover;*/
+    background-attachment: fixed;
+    background-color: var(--color-sand);
+    background-size: cover;
+}
+
+
+
+.gold-accent {
+    color: var(--color-sea-medium);
+}
+
+/* ---------------------------------- */
+/* SOBRE DE APERTURA */
+/* ---------------------------------- */
+.cover-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 1); /* O el color base del patr�n sutil */
+    z-index: 9999;
+    display: flex;
+    flex-direction: column; /* Apila los elementos verticalmente */
+    justify-content: space-between; /* Distribuye el espacio entre los bloques */
+    align-items: center;
+    text-align: center;
+    cursor: pointer; /* Indica que es clicable */
+    transition: opacity 1s ease;
+    padding: 50px 20px; /* Padding superior e inferior */
+}
+/* Bloque de texto superior */
+.intro-text {
+    margin-bottom: 40px; /* Espacio con el sobre */
+    color: var(--color-text); /* Color de texto general */
+}
+
+.greeting-pre {
+    font-family: 'Playfair Display', serif; /* Una fuente con m�s personalidad */
+    font-size: 2.2em;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.greeting-sub {
+    font-family: 'Merriweather', serif;
+    font-size: 1em;
+    line-height: 1.5;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.names-sender {
+    font-family: 'Tangerine', cursive; /* Fuente cursiva elegante */
+    font-size: 3.5em; /* Un poco m�s grande */
+    font-weight: normal;
+    color: var(--color-sea-dark); /* Color oscuro para el nombre */
+    line-height: 1; /* Para que no haya mucho espacio vertical */
+}
+
+/* Contenedor de la imagen del sobre (aqu� le daremos la sombra) */
+.envelope-image-container {
+    margin-bottom: 40px;
+    /* Sombra sutil para el sobre */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Sombra difusa */
+    border-radius: 5px; /* Bordes ligeramente redondeados para la sombra */
+    display: inline-block; /* Para que la sombra se ajuste al tama�o de la imagen */
+}
+
+.main-envelope-image {
+    width: 250px; /* Tama�o de la imagen del sobre */
+    height: auto;
+    display: block; /* Elimina espacio extra debajo de la imagen */
+}
+
+/* Texto de llamada a la acci�n y flecha */
+.call-to-action-text {
+    margin-bottom: 30px;
+}
+
+.cta-open {
+    font-family: 'Merriweather', serif;
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* Flecha que rebota (CSS puro) */
+.arrow-down-bounce {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid var(--color-sea-medium); /* Color de la flecha */
+    margin: 0 auto;
+    animation: bounce 1.5s infinite; /* Usa la animaci�n de rebote existente */
+}
+
+/* Footer de la p�gina de portada */
+.footer-cover {
+    font-family: 'Merriweather', serif;
+    font-size: 0.8em;
+    color: #888;
+    margin-top: auto; /* Empuja el footer hacia abajo */
+}
+
+.designer-credit {
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Espacio entre los iconos */
+}
+
+.social-icon {
+    width: 20px; /* Tama�o de los iconos de redes sociales */
+    height: auto;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.social-icon:hover {
+    opacity: 1;
+}
+
+/* Opcional: Si usas Font Awesome en lugar de im�genes para redes */
+/*
+.social-icons .fab {
+    font-size: 1.2em;
+    color: #888;
+    transition: color 0.3s ease;
+}
+.social-icons .fab:hover {
+    color: var(--color-sea-dark);
+}
+*/
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-15px);}
+    60% {transform: translateY(-8px);}
+}
+
+.hidden-content {
+    display: none;
+}
+
+/* ---------------------------------- */
+/* SECCI�N HERO (PORTADA) */
+/* ---------------------------------- */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    /* =G FONDO ESPEC�FICO DE MAR PARA EL ENCABEZADO */
+    background-image: url('Images/fondo.jpg'); /* �Ruta confirmada! */
+    background-position: center center;
+    background-size: cover; 
+    background-repeat: no-repeat; 
+
+    /* =G APLICACI�N DE LA ANIMACI�N */
+    animation: sea-motion 10s ease-in-out infinite alternate; /* Animaci�n lenta y continua */
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* CAPA SEMI-TRANSPARENTE AZUL OSCURO PARA PORTADA */
+    background-color: rgba(0, 30, 60, 0.5); 
+}
+
+.content {
+    position: relative;
+    z-index: 10;
+    color: white;
+    padding: 20px;
+    max-width: 600px; 
+    margin: 0 auto; 
+}
+
+/* FOTO DE LA QUINCEA�ERA EN PORTADA */
+.quince-photo {
+    width: 160px; 
+    height: 160px; 
+    border-radius: 50%; 
+    object-fit: cover; 
+    border: 5px solid white; 
+    box-shadow: 0 0 0 3px var(--color-sea-medium);
+    margin-bottom: 25px;
+    position: relative; 
+    z-index: 20;
+}
+
+/* ESTILO DEL ENCABEZADO (INSPIRADO EN TU REFERENCIA) */
+.subtitle-top {
+    font-family: "Merriweather", serif;;
+    font-size: 1em;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 15px;
+}
+
+.line {
+    width: 260px; 
+    height: 1px; 
+    background-color: rgba(255, 255, 255, 0.6);
+    margin: 15px auto; 
+}
+
+.content h1 {
+    font-family: "Tangerine", cursive;
+    font-size: 8.0em; 
+    color: white;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    margin: 10px 0; 
+    line-height: 1.1; 
+}
+
+/* Detalles de la fecha y lugar */
+.date-details {
+    font-family: "Merriweather", serif;
+    font-size: 1.1em;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.4;
+    margin-top: 25px;
+    margin-bottom: 40px; 
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* <-- �Esta es la sombra! */
+}
+
+.date-details .day-week {
+    font-size: 0.9em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.date-details .day {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2em; 
+    font-weight: bold;
+    color: white;
+    margin: 0 5px;
+}
+
+.date-details .month,
+.date-details .year {
+    font-size: 1.3em;
+    text-transform: uppercase;
+    font-weight: normal;
+}
+
+.date-details .location {
+    font-size: 0.9em;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 5px;
+    display: block; 
+}
+
+/* Etiqueta "FALTAN" para el contador */
+.countdown-label {
+    font-family: "Merriweather", serif;
+    font-size: 5.5em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: white;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* <-- �Esta es la sombra! */
+}
+
+/* ---------------------------------- */
+/* CONTADOR DE TIEMPO */
+/* ---------------------------------- */
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 0; 
+    margin-bottom: 40px; 
+}
+
+.time-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.time-unit span {
+    font-family: "Tangerine", cursive;
+    
+    font-weight: 2.5em;
+    color: white;
+    border-top: 1px solid rgba(255, 255, 255, 0.8);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+    padding: 12px 12px;
+    
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo m�s oscuro para los n�meros */
+}
+
+.time-unit label {
+    margin-top: 5px;
+    font-size: 0.8em;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+}
+
+/* ---------------------------------- */
+/* BOTONES Y ENLACES (CTAs) */
+/* ---------------------------------- */
+.cta-button {
+    background-color: var(--color-text);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-family: "Merriweather", serif;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin-top: 15px;
+}
+
+.cta-button:hover {
+    background-color: var(--color-sea-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.secondary-button {
+    background-color: var(--color-coral);
+}
+
+.secondary-button:hover {
+    background-color: #e56b3e;
+}
+
+/* ---------------------------------- */
+/* SECCIONES GENERALES (CON OVERLAY/OPACIDAD) */
+/* ---------------------------------- */
+.section {
+    padding: 70px 20px;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    /* CAPA SEMI-TRANSPARENTE AZUL OSCURO PARA PORTADA */
+    background-color: rgba(0, 30, 60, 0.15); 
+}
+
+/* Contenedor de la secci�n RSVP: Damos fondo semi-transparente */
+.rsvp-section {
+    background-color: rgba(248, 247, 245, 0.9); 
+}
+
+.section h3 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.greeting {
+    font-size: 0.9em;
+    margin-bottom: 30px;
+    color: #666;
+}
+
+/* ---------------------------------- */
+/* UBICACIONES (TARJETAS CON OPACIDAD) */
+/* ---------------------------------- */
+/* ---------------------------------- */
+/* UBICACIONES (TARJETAS CON ESTILO DETALLADO) */
+/* ---------------------------------- */
+.locations-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Aumentamos el espacio entre tarjetas */
+    margin-top: 30px;
+}
+
+.location-card {
+    /* Estilo elegante de la tarjeta */
+    background-color: rgba(255, 255, 255, 0.9); 
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 30px 20px; /* M�s padding para el contenido */
+    border-radius: 10px;
+    flex: 1;
+    max-width: 350px; /* Tama�o m�ximo para centrar */
+    color: var(--color-text);
+    position: relative;
+    z-index: 1;
+}
+
+
+/* ---------------------------------- */
+/* ENCABEZADO Y FILAS DE DETALLES */
+/* ---------------------------------- */
+.card-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    
+}
+
+.icon-event {
+    font-size: 2.2em;
+    margin-right: 15px;
+}
+
+.event-title {
+    font-family: "Tangerine", cursive;
+    font-size: 2em;
+    font-weight: 800;
+    color: var(--color-text);
+}
+
+.details-row {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.3); /* L�nea sutil */
+}
+
+.detail-block {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.detail-icon {
+    font-size: 1.5em;
+    color: var(--color-coral);
+    margin-bottom: 5px;
+}
+
+.detail-label {
+    font-size: 0.8em;
+    font-weight: 300;
+    text-transform: uppercase;
+    color: #888;
+}
+
+.detail-value {
+    font-size: 0.9em;
+    font-weight: bold;
+    color: var(--color-text);
+    margin-top: 5px;
+}
+
+.location-card h4 {
+    color: var(--color-sea-medium);
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.map-link {
+    color: var(--color-coral);
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+}
+
+/* ---------------------------------- */
+/* C�DIGO DE VESTIMENTA Y REGALOS (TARJETAS CON OPACIDAD) */
+/* ---------------------------------- */
+.dress-code-details {
+    padding: 20px;
+    /* MODIFICACI�N: Fondo semi-transparente */
+    background-color: rgba(255, 255, 255, 0.9); 
+    border: 1px solid var(--color-sea-light);
+    border-radius: 10px;
+    max-width: 400px;
+    margin: 20px auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.icon-text {
+    color: var(--color-sea-dark);
+    border-bottom: 3px double var(--color-sea-medium);
+    padding-bottom: 5px;
+}
+
+.account-number {
+    font-size: 1.4em;
+    color: var(--color-sea-medium);
+    font-weight: bold;
+    background-color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px dashed var(--color-sea-medium);
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+
+/* ---------------------------------- */
+/* CARRUSEL DE FOTOS (SECCI�N CON OPACIDAD) */
+/* ---------------------------------- */
+.gallery-section {
+    /* MODIFICACI�N: Fondo semi-transparente */
+    background-color: rgba(255, 255, 255, 0.9); 
+    padding: 80px 20px;
+}
+
+.slider-container {
+    position: relative;
+    max-width: 600px;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.slide {
+    width: 100%;
+    height: auto;
+    flex-shrink: 0;
+    display: none;
+}
+
+.prev-button, .next-button {
+    background-color: rgba(0, 119, 182, 0.6);
+}
+
+.dot.active {
+    background-color: var(--color-sea-medium);
+}
+
+/* ---------------------------------- */
+/* FOOTER */
+/* ---------------------------------- */
+footer {
+    background-color: var(--color-sea-dark);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+/* ---------------------------------- */
+/* RESPONSIVE */
+/* ---------------------------------- */
+@media (max-width: 768px) {
+    .content h1 {
+        font-size: 3.5em;
+    }
+    .date-details .day {
+        font-size: 1.8em;
+    }
+    .date-details .month,
+    .date-details .year {
+        font-size: 1.1em;
+    }
+    .countdown-label {
+        font-size: 1.2em;
+    }
+    .time-unit span {
+        font-size: 2em;
+    }
+}
+
+@media (max-width: 600px) {
+    .content h1 {
+        font-size: 2.8em;
+    }
+    .date-details {
+        font-size: 1em;
+    }
+    .date-details .day {
+        font-size: 1.5em;
+    }
+    .countdown-label {
+        font-size: 1em;
+    }
+    .time-unit span {
+        font-size: 1.8em;
+        padding: 6px 10px;
+    }
+    .time-unit label {
+        font-size: 0.7em;
+    }
+    .locations-container {
+        flex-direction: column;
+    }
+    .quince-photo {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 20px;
+    }
+}
+
+/* ---------------------------------- */
+/* ANIMACI�N DE FONDO MARINO */
+/* ---------------------------------- */
+@keyframes sea-motion {
+    0% {
+        background-position: 0% 0%; /* Posici�n inicial */
+    }
+    50% {
+        background-position: 50% 10%; /* Se mueve ligeramente hacia la derecha y abajo */
+    }
+    100% {
+        background-position: 0% 0%; /* Regresa a la posici�n inicial */
+    }
+}
+
+/* ---------------------------------- */
+/* DIRECCI�N Y BOT�N */
+/* ---------------------------------- */
+.address-title {
+    font-family: "Merriweather", serif;
+    font-size: 0.9em;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-text);
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.address-text {
+    font-size: 1em;
+    margin-bottom: 25px;
+}
+
+.route-button {
+    /* Estilo del bot�n de ruta */
+    background-color: var(--color-sea-dark);
+    color: white;
+    padding: 10px 25px;
+    font-size: 0.95em;
+    width: 100%; /* El bot�n ocupa todo el ancho */
+    max-width: 200px; /* Pero con un l�mite */
+    margin: 10px auto 0;
+}
+
+.route-button:hover {
+    background-color: #e56b3e;
+}
+
+@media (max-width: 600px) {
+    /* ... otros estilos para m�vil ... */
+    
+    .locations-container {
+        flex-direction: column; /* Apila las tarjetas en m�vil */
+        gap: 20px;
+    }
+    .location-card {
+        max-width: 100%; /* Ocupa todo el ancho en m�vil */
+    }
+}
+
+/* ---------------------------------- */
+/* SECCI�N TIPO TARJETA DE INVITACI�N */
+/* ---------------------------------- */
+
+.intro-invite-section {
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 60px 20px;
+}
+
+.invite-card {
+    background-color: white;
+    border-radius: 5px;
+    padding: 40px 30px;
+    max-width: 650px;
+    margin: 0 auto;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    font-family: "Merriweather", serif;
+}
+
+.invite-title {
+    font-family: "Tangerine", cursive;
+    font-size: 2.5em;
+    color: var(--color-text);
+    
+}
+
+.invite-icon {
+    font-size: 2.2em;
+    margin: 15px 0;
+    color: var(--color-sea-medium);
+}
+
+.invite-greeting {
+    font-size: 1.2em;
+    margin-bottom: 25px;
+    color: var(--color-text);
+}
+
+.invite-text {
+    font-size: 0.9em;
+    line-height: 1.7;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+.invite-final {
+    font-size: 1.0em;
+    margin-top: 25px;
+    font-weight: bold;
+    color: var(--color-text);
+}
+
+.imperial-script-regular {
+  font-family: "Imperial Script", cursive;
+
+  font-style: normal;
+}
+
+.icon {
+    width: 40px;
+    padding: 0;
+    margin: 0;
+}
+
+.line-black {
+    width: 260px; 
+    height: 1px; 
+    background-color: rgba(0, 0, 0, 0.6);
+    margin: 1px auto; 
+}
+
+.message-separator {
+    display: flex;
+    justify-content: center; /* Centra el icono */
+    align-items: center; /* Centra verticalmente */
+    position: relative; /* Clave para posicionar las l�neas respecto a este div */
+}
+
+/* Pseudoelemento para la L�NEA IZQUIERDA */
+.message-separator::before {
+    content: '';
+    width: 60px; /* Ancho de la l�nea */
+    height: 1px; /* Grosor de la l�nea */
+    background-color: #ccc;
+    position: absolute; /* CLAVE: Flota fuera del flujo normal */
+    top: 50%; /* Lo alinea a la mitad del contenedor */
+    transform: translateY(-50%);
+    left: 200px; /* POSICIONAMIENTO: Ajusta su distancia desde la izquierda */
+}
+
+/* Pseudoelemento para la L�NEA DERECHA */
+.message-separator::after {
+    content: '';
+    width: 60px;
+    height: 1px;
+    background-color: #ccc;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 200px; /* POSICIONAMIENTO: Ajusta su distancia desde la derecha */
+}
+/* ---------------------------------- */
+/* SECCI�N EVENT INFO CON LOOK DE TARJETA */
+/* ---------------------------------- */
+
+.event-info-section {
+    background-color: rgba(255, 255, 255, 0.15); /* igual que intro-invite */
+    padding: 60px 20px;
+}
+
+.event-card {
+    background-color: white;
+    border-radius: 5px;
+    padding: 40px 30px;
+    max-width: 900px;
+    margin: 0 auto;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+.event-title-main {
+    font-family: "Tangerine", cursive;
+    font-size: 2.0em;
+    color: var(--color-text);
+}
+
+.event-card .greeting {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 40px;
+}
+
+/* Ajuste para que las tarjetas internas mantengan armon�a */
+.event-card .locations-container {
+    margin-top: 10px;
+}
+
+/* ---------------------------------- */
+/* GALER�A DE FOTOS (Mosaico con CSS Grid) */
+/* ---------------------------------- */
+.photo-grid {
+    display: grid;
+    /* Define la cuadr�cula: 2 columnas con ancho m�nimo de 150px y 1fr */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px; /* Espacio entre las im�genes */
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 0 10px;
+}
+
+.grid-photo {
+    width: 100%;
+    height: 100%; /* Ocupa la altura del contenedor de la celda */
+    object-fit: cover; /* Asegura que la imagen cubra todo el espacio sin deformarse */
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.grid-photo:hover {
+    transform: scale(1.03); /* Efecto sutil al pasar el mouse */
+}
+
+
+/* Estilo espec�fico para simular el look de la referencia con diferentes tama�os */
+
+/* Las fotos 1 y 4 (o las que desees) ser�n m�s altas/largas */
+.photo-grid img:nth-child(1),
+.photo-grid img:nth-child(2),
+.photo-grid img:nth-child(5),
+.photo-grid img:nth-child(4) {
+    grid-row: span 2; /* Ocupa 2 filas */
+    height: 310px; /* Altura fija para que la foto larga se vea bien */
+}
+
+/* Las fotos 3 y 6 (o las que desees) ser�n m�s anchas */
+.photo-grid img:nth-child(3),
+.photo-grid img:nth-child(6) {
+    grid-column: span 2; /* Ocupa 2 columnas */
+}
+
+/* Ajuste de altura para las fotos normales (para que no se estiren) 
+.photo-grid img:not(:nth-child(1)):not(:nth-child(4)) {
+    height: 150px; 
+}*/
+
+/* Estilo para la secci�n de galer�a (puedes mantener el fondo semi-transparente) */
+.gallery-section {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 80px 20px;
+}
+li {
+    font-family: "Merriweather", serif;
+    font-size: 0.9em;
+}
