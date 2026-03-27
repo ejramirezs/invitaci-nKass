@@ -3,6 +3,7 @@
 // ==========================================================
 // La fecha debe ser 2026, 1 (Febrero), 14
 const eventDate = new Date(2026, 1, 14, 20, 0, 0).getTime();
+const countdownInterval = setInterval(updateCountdown, 1000);
 
 const updateCountdown = function() {
     const now = new Date().getTime();
@@ -29,7 +30,7 @@ const updateCountdown = function() {
 };
 
 updateCountdown();
-const countdownInterval = setInterval(updateCountdown, 1000);
+
 
 // ==========================================================
 // PARTE 2: APERTURA DEL SOBRE Y MÚSICA
